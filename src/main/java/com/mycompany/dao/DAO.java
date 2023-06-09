@@ -24,12 +24,6 @@ public class DAO<T> {
     @Getter
     @Autowired
     private SessionFactory sessionFactory;
-    
-//    public List getAllCountries() {
-//        Session session = this.sessionFactory.getCurrentSession();
-//        List countryList = session.createQuery("from Country").list();
-//        return countryList;
-//    }
  
     public T getItem(long id, Class<T> type) {
         Session session = this.sessionFactory.getCurrentSession();
@@ -43,12 +37,12 @@ public class DAO<T> {
         return item;
     }
  
-    public void updateCountry(T item) {
+    public void updateItem(T item) {
         Session session = this.sessionFactory.getCurrentSession();
         session.update(item);
     }
  
-    public void deleteCountry(long id, Class<T> type) {
+    public void deleteItem(long id, Class<T> type) {
         Session session = this.sessionFactory.getCurrentSession();
         T item = (T) session.load(type,id);
         if (null != item) {
